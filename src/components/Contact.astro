@@ -1,0 +1,36 @@
+---
+import { person } from "../data/site";
+---
+
+<section id="contact" class="sect dark contact-sect" aria-labelledby="contact-h">
+  <div class="wrap">
+    <h2 id="contact-h" class="sect-label"><span>09</span> Contact</h2>
+
+    <div class="contact">
+      <pre class="code" aria-label="Contact details as Zig code"><code><span class="c">//! contact.zig</span>
+
+<span class="k">pub const</span> <span class="t">contact</span> = .{"{"}
+    .name   = <span class="s">"{person.name}"</span>,
+    .email  = <a class="s" href={`mailto:${person.email}`}>"{person.email}"</a>,
+    .github = <a class="s" href={`https://github.com/${person.github}`}>"github.com/{person.github}"</a>,
+    .web    = <a class="s" href="/">"{person.site}"</a>,
+{"}"};</code></pre>
+
+      <div class="contact-big">
+        <p class="lbl">Email</p>
+        <p><a class="big-link" href={`mailto:${person.email}`}>{person.email}</a></p>
+        <p class="lbl">GitHub</p>
+        <p><a class="big-link" href={`https://github.com/${person.github}`}>github.com/{person.github}</a></p>
+      </div>
+    </div>
+
+    <footer class="foot">
+      <p class="foot-name"><span class="wordmark-block">ANSHUL NOORI</span></p>
+      <p class="caption">
+        Set in <a href="https://departuremono.com">Departure Mono</a> by Helena Zhang (SIL OFL). Layout after
+        <a href="https://owickstrom.github.io/the-monospace-web/">The Monospace Web</a>. Built with Astro, served
+        from Cloudflare. <span data-weight></span>
+      </p>
+    </footer>
+  </div>
+</section>

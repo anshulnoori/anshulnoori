@@ -1,0 +1,57 @@
+---
+import { education, service, awards } from "../data/site";
+const { exeter, stanford } = education;
+---
+
+<section id="school" class="sect school wrap" aria-labelledby="school-h">
+  <h2 id="school-h" class="sect-label"><span>08</span> School &amp; service</h2>
+
+  <div class="receipts">
+    <article class="receipt" aria-label={exeter.name}>
+      <p class="center">{exeter.name}<br />{exeter.place}</p>
+      <p class="center dim">{exeter.when}</p>
+      <p class="r-h">Coursework</p>
+      <dl>
+        {exeter.lines.map(([c, n, g]) => <><dt><span class="dim">{c}</span> {n}</dt><dd>{g || "--"}</dd></>)}
+      </dl>
+      <p class="r-h">AP exams</p>
+      <dl>
+        {exeter.ap.map(([n, s]) => <><dt>{n}</dt><dd>{s}</dd></>)}
+      </dl>
+      <p class="r-h">Senior year</p>
+      <ul>{exeter.senior.map((s) => <li>{s}</li>)}</ul>
+    </article>
+
+    <article class="receipt" aria-label={stanford.name}>
+      <p class="center">{stanford.name}<br />{stanford.place}</p>
+      <p class="center dim">{stanford.when}</p>
+      <p class="r-h">Coursework</p>
+      <dl>
+        {stanford.lines.map(([c, n, g]) => <><dt><span class="dim">{c}</span> {n}</dt><dd>{g}</dd></>)}
+      </dl>
+      <p class="dim small">{stanford.note}</p>
+    </article>
+
+    <div class="awards">
+      <h3 class="sub-label">Awards</h3>
+      <ul class="dash">
+        {awards.map(([a, b]) => <li>{a}{b && <span class="dim">, {b}</span>}</li>)}
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="sub-label">Leadership &amp; service</h3>
+  <ul class="service">
+    {
+      service.map((s) => (
+        <li>
+          <p class="svc-h">
+            {s.href ? <a href={s.href}>{s.name}</a> : s.name}
+            <span class="dim"> | {s.role}</span>
+          </p>
+          {s.notes.map((n) => <p>{n}</p>)}
+        </li>
+      ))
+    }
+  </ul>
+</section>

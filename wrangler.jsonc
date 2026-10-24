@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "anshulnoori-com",
+  "compatibility_date": "2026-10-01",
+  // Static assets only: no Worker script runs.
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "anshulnoori.com", "custom_domain": true }]
+}

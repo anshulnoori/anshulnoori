@@ -1,0 +1,42 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import OpenSource from "../components/OpenSource.astro";
+import Work from "../components/Work.astro";
+import Projects from "../components/Projects.astro";
+import Homelab from "../components/Homelab.astro";
+import Keyboards from "../components/Keyboards.astro";
+import Skills from "../components/Skills.astro";
+import School from "../components/School.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Base
+  title="Anshul Noori"
+  description="Anshul Noori: student at Phillips Exeter Academy, CTO of Topit AI, and contributor to Buck2, MoltenVK, SPIRV-Cross, and NixOS on Apple Silicon."
+>
+  <Nav />
+  <main>
+    <Hero />
+    <About />
+    <OpenSource />
+    <Work />
+    <Projects />
+    <Homelab />
+    <Keyboards />
+    <Skills />
+    <School />
+    <Contact />
+  </main>
+  <aside class="keys" aria-label="Keyboard shortcuts">
+    <span><kbd>1</kbd>-<kbd>9</kbd> Section</span>
+    <span><kbd>J</kbd><kbd>K</kbd> Next / prev</span>
+    <span><kbd>M</kbd> Light / dark</span>
+    <span><kbd>G</kbd> Grid</span>
+  </aside>
+  <script>
+    import "../scripts/site";
+  </script>
+</Base>

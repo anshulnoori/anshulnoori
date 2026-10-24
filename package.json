@@ -1,0 +1,17 @@
+{
+  "name": "anshulnoori.com",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "wrangler dev",
+    "deploy": "astro build && wrangler deploy"
+  },
+  "devDependencies": {
+    "astro": "7.4.2",
+    "qrcode": "^1.5.4",
+    "wrangler": "4.152.0"
+  }
+}

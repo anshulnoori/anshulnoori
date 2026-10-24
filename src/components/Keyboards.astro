@@ -1,0 +1,99 @@
+---
+import { keyboards } from "../data/site";
+
+// Generic tenkeyless outline, in key units. Illustration only.
+type K = [x: number, y: number, w: number];
+const rows: [number, number[]][] = [
+  [1.25, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2]],
+  [2.25, [1.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.5]],
+  [3.25, [1.75, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.25]],
+  [4.25, [2.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2.75]],
+  [5.25, [1.25, 1.25, 1.25, 6.25, 1.25, 1.25, 1.25, 1.25]],
+];
+const keys: K[] = [];
+// F-row
+keys.push([0, 0, 1]);
+for (const [start, n] of [[2, 4], [6.5, 4], [11, 4]] as const) for (let i = 0; i < n; i++) keys.push([start + i, 0, 1]);
+for (let i = 0; i < 3; i++) keys.push([15.25 + i, 0, 1]);
+for (const [y, widths] of rows) {
+  let x = 0;
+  for (const w of widths) {
+    keys.push([x, y, w]);
+    x += w;
+  }
+}
+// Navigation cluster and arrows
+for (const y of [1.25, 2.25]) for (let i = 0; i < 3; i++) keys.push([15.25 + i, y, 1]);
+keys.push([16.25, 4.25, 1]);
+for (let i = 0; i < 3; i++) keys.push([15.25 + i, 5.25, 1]);
+
+const U = 40;
+const P = 3;
+const io = keyboards.io80;
+const pro = keyboards.prometheus;
+---
+
+<section id="keyboards" class="sect dark kb-sect" aria-labelledby="kb-h">
+  <div class="wrap">
+    <h2 id="kb-h" class="sect-label"><span>06</span> Keyboards</h2>
+
+    <div class="kb-top">
+      <figure class="kb-fig">
+        <svg viewBox="-20 -80 800 410" role="img" aria-label="Line drawing of a tenkeyless keyboard with callouts">
+          <rect class="case" x="-12" y="-12" width={18.25 * U + 24} height={6.25 * U + 24} rx="6"></rect>
+          {keys.map(([x, y, w]) => <rect x={x * U + P} y={y * U + P} width={w * U - 2 * P} height={U - 2 * P} rx="2" />)}
+          <circle class="knob" cx={16.75 * U} cy={-34} r="16"></circle>
+          <path class="call" d={`M${16.75 * U + 16} -34 H780`}></path>
+          <text x="780" y="-40" text-anchor="end">VOLUME KNOB</text>
+          <path class="call" d={`M${3.5 * U} ${3.75 * U} L${3.5 * U} 300 H300`}></path>
+          <text x={3.5 * U + 10} y="294">PER-KEY LIGHTING</text>
+          <rect class="fp" x={13.4 * U} y={-30} width="30" height="16"></rect>
+          <path class="call" d={`M${13.4 * U} -22 H360`}></path>
+          <text x="360" y="-28">FINGERPRINT READER</text>
+          <path class="call" d={`M${8 * U} -12 V-48 H${8 * U - 160}`}></path>
+          <text x={8 * U - 160} y="-54">8,000 HZ POLLING</text>
+        </svg>
+        <figcaption>Schematic only, not the real IO80 layout.</figcaption>
+      </figure>
+
+      <div class="kb-big">
+        <p class="big-num">88</p>
+        <p class="lbl">Keys, IO80</p>
+      </div>
+    </div>
+
+    <div class="kb-cols">
+      <article>
+        <p class="meta"><span>Project 15</span><span>[HW]</span><span>{io.stack}</span><span>{io.dates}</span></p>
+        <h3 class="spec-name">{io.name}<span class="dim">, {io.what}</span></h3>
+        {io.notes.map((n) => <p>{n}</p>)}
+        <dl class="gauges">
+          <dt>Random key combinations without interference</dt>
+          <dd><span class="gauge" style="--v:1"></span>5,000 / 5,000</dd>
+          <dt>Report rate</dt>
+          <dd><span class="gauge" style="--v:1"></span>8,000 Hz</dd>
+        </dl>
+      </article>
+
+      <article>
+        <p class="meta">
+          <span>Project 16</span><span>[HW]</span><span>{pro.stack}</span><span>{pro.dates}</span>
+          <a href={pro.href}><span aria-hidden="true">↗</span> Source</a>
+        </p>
+        <h3 class="spec-name">{pro.name}<span class="dim">, {pro.what}</span></h3>
+        {pro.notes.map((n) => <p>{n}</p>)}
+        <div class="packet" role="table" aria-label="Prometheus summary">
+          <div role="row" class="pk-row">
+            <span role="cell" style="--s:2">Switches: mechanical</span><span role="cell" style="--s:2">Sensors: magnetic</span>
+          </div>
+          <div role="row" class="pk-row">
+            <span role="cell" style="--s:4">Actuation depth: set by the user</span>
+          </div>
+          <div role="row" class="pk-row">
+            <span role="cell">60%</span><span role="cell">→</span><span role="cell">75%</span><span role="cell">KiCad</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

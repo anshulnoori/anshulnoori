@@ -1,0 +1,39 @@
+---
+import { skills } from "../data/site";
+const count = skills.reduce((n, g) => n + g.items.length, 0);
+const first = "Zig";
+let n = 0;
+const cp = (s: string) => "U+" + s.codePointAt(0)!.toString(16).toUpperCase().padStart(4, "0");
+---
+
+<section id="skills" class="sect dark skills-sect" aria-labelledby="skills-h">
+  <div class="wrap">
+    <h2 id="skills-h" class="sect-label"><span>07</span> Skills</h2>
+
+    <div class="skills">
+      <div class="glyph-card" aria-hidden="true">
+        <div class="gc-row"><span data-gc-group>Languages</span><span data-gc-cp>{cp(first)}</span></div>
+        <div class="gc-line"><span>Index</span><span data-gc-index>03 / {count}</span></div>
+        <p class="gc-glyph" data-gc-name>{first}</p>
+        <div class="gc-line"><span>Baseline</span><span>0</span></div>
+      </div>
+
+      <div class="glyph-groups">
+        {
+          skills.map((g) => (
+            <div class="glyph-group">
+              <h3 class="sub-label">{g.group}</h3>
+              <ul class="glyphs">
+                {g.items.map((s) => (
+                  <li data-group={g.group} data-cp={cp(s)} data-i={String(++n).padStart(2, "0")}>
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

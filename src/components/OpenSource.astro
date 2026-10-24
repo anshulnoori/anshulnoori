@@ -1,0 +1,54 @@
+---
+import { openSource } from "../data/site";
+const prUrl = (c: (typeof openSource)[number]) =>
+  c.pr ? `https://github.com/${c.owner}/${c.repo}/pull/${c.pr}` : `https://github.com/${c.owner}/${c.repo}`;
+---
+
+<section id="oss" class="sect oss wrap" aria-labelledby="oss-h">
+  <h2 id="oss-h" class="sect-label"><span>02</span> Open source</h2>
+
+  <div class="board-scroll">
+    <table class="board">
+      <thead>
+        <tr><th scope="col">Upstream <span aria-hidden="true">↑</span></th><th scope="col" class="c-pr">PR</th><th
+            scope="col" class="c-lang">Lang</th><th scope="col" class="c-date">Date</th><th scope="col">Status</th></tr>
+      </thead>
+      <tbody>
+        {
+          openSource.map((c, i) => (
+            <tr class={i === 0 ? "is-hl" : undefined}>
+              <td>
+                <a href={prUrl(c)}>
+                  <span class="cd">{c.code}</span> {c.repo}
+                </a>
+              </td>
+              <td class="c-pr">{c.pr ? `#${c.pr}` : "--"}</td>
+              <td class="c-lang">{c.lang}</td>
+              <td class="c-date">{c.date}</td>
+              <td class={c.status === "MERGED" ? "st-ok" : "st-wait"}>{c.status === "MERGED" ? "Merged" : "Upcoming"}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <p class="caption">
+    {openSource.filter((c) => c.status === "MERGED").length} merged upstream, {
+      openSource.filter((c) => c.status !== "MERGED").length
+    } upcoming. Rust, C++, Objective-C++, Nix, Go.
+  </p>
+
+  <ol class="board-notes">
+    {
+      openSource.map((c) => (
+        <li>
+          <p class="meta">
+            <span class="cd">{c.code}</span> {c.owner}/{c.repo} {c.pr ? `#${c.pr}` : ""} <span class="dim">· {c.what}</span>
+          </p>
+          {c.notes.map((n) => <p>{n}</p>)}
+        </li>
+      ))
+    }
+  </ol>
+</section>
