@@ -1,10 +1,35 @@
 ---
 import { education, service, awards } from "../data/site";
+import { barcodePath } from "../lib/barcode";
 const { exeter, stanford } = education;
 ---
 
 <section id="school" class="sect school wrap" aria-labelledby="school-h">
-  <h2 id="school-h" class="sect-label"><span>08</span> School &amp; service</h2>
+  <h2 id="school-h" class="sect-label"><span>08</span> School</h2>
+
+  <article class="pass" aria-label="Education: Stanford Online High School, grades 6 to 8, then Phillips Exeter Academy, class of 2027">
+    <div class="pass-stub">
+      <p class="lbl">Passenger</p>
+      <p class="val-s">Noori, Anshul</p>
+      <p class="lbl">Arrives</p>
+      <p class="val-s">June 2027</p>
+    </div>
+    <div class="pass-main">
+      <div class="pass-head">
+        <p class="pass-co">Education<br /><span class="dim">Boarding pass</span></p>
+        <svg class="barcode" viewBox="0 0 120 1" preserveAspectRatio="none" aria-hidden="true"
+          ><path d={barcodePath("stanford-ohs-to-exeter-2027")}></path></svg>
+      </div>
+      <div class="pass-route">
+        <div><p class="lbl">From, grades 6-8</p><p class="val-l">OHS</p><p class="val-s">Stanford Online High School</p></div>
+        <p class="arrow" aria-hidden="true">►►</p>
+        <div><p class="lbl">To, class of 2027</p><p class="val-l">PEA</p><p class="val-s">Phillips Exeter Academy</p></div>
+      </div>
+      <div class="pass-grid">
+        {exeter.ap.map(([n, sc]) => <div><p class="lbl">AP {n}</p><p class="val-l">{sc}</p></div>)}
+      </div>
+    </div>
+  </article>
 
   <div class="receipts">
     <article class="receipt" aria-label={exeter.name}>
@@ -13,10 +38,6 @@ const { exeter, stanford } = education;
       <p class="r-h">Coursework</p>
       <dl>
         {exeter.lines.map(([c, n, g]) => <><dt><span class="dim">{c}</span> {n}</dt><dd>{g || "--"}</dd></>)}
-      </dl>
-      <p class="r-h">AP exams</p>
-      <dl>
-        {exeter.ap.map(([n, s]) => <><dt>{n}</dt><dd>{s}</dd></>)}
       </dl>
       <p class="r-h">Senior year</p>
       <ul>{exeter.senior.map((s) => <li>{s}</li>)}</ul>

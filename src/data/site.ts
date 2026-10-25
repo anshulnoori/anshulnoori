@@ -107,6 +107,7 @@ export type Project = {
   kind: "SW" | "HW" | "GPU" | "AI" | "OPS";
   dates?: string;
   href?: string;
+  impact?: string;
   notes: string[];
 };
 
@@ -121,6 +122,7 @@ export const projects: Project[] = [
     kind: "GPU",
     dates: "2026.04 → now",
     href: gh("silt"),
+    impact: "Macs lacked a graphics feature the engine needed, so I added it to MoltenVK upstream.",
     notes: [
       "A game engine built from scratch for Windows, macOS, and Linux. When Macs lacked a graphics feature it needed, I added that feature to MoltenVK.",
       "Draws only as much detail as the screen can show, similar to Unreal Engine's Nanite, so large worlds stay fast.",
@@ -134,6 +136,7 @@ export const projects: Project[] = [
     stack: "Rust, Python, SQL",
     kind: "SW",
     href: gh("trading"),
+    impact: "No real money moves without statistical checks and human approval.",
     notes: [
       "Researches, tests, and runs stock and options trading strategies, with statistical checks against lucky results and human approval required before any real money is used.",
     ],
@@ -146,6 +149,7 @@ export const projects: Project[] = [
     kind: "GPU",
     dates: "2026.04 → now",
     href: gh("twentytwentyvision"),
+    impact: "Players see much farther: distant terrain is drawn at lower detail on the GPU.",
     notes: [
       "Lets players see much farther by drawing distant terrain at lower detail and moving the drawing work to the graphics card.",
     ],
@@ -157,6 +161,7 @@ export const projects: Project[] = [
     stack: "Kotlin",
     kind: "SW",
     href: gh("gum"),
+    impact: "Published for other FTC teams; robot code can be updated between matches.",
     notes: [
       "Replaced my FTC team's standard tools with an open-source framework, published for other teams, that makes robot code simpler to write and lets teams update code on the robot between matches.",
     ],
@@ -167,6 +172,7 @@ export const projects: Project[] = [
     what: "Whoop for guide dogs",
     stack: "Python, PyTorch, hardware",
     kind: "AI",
+    impact: "Helps guide-dog nonprofits spend limited resources on puppies likely to graduate.",
     notes: [
       "An AI model that predicts which guide-dog puppies will finish training, so nonprofits can focus limited resources on likely graduates.",
       "A prototype sensor collar that tracks a puppy's movement, heart rate, breathing, and sounds, to combine with video.",
@@ -179,6 +185,7 @@ export const projects: Project[] = [
     stack: "TypeScript, Python",
     kind: "AI",
     dates: "2026.10 → now",
+    impact: "Judged on results that matter for drug development.",
     notes: [
       "Reads Alzheimer's studies and datasets, links findings across papers, and is judged on results that matter for drug development.",
     ],
@@ -191,6 +198,7 @@ export const projects: Project[] = [
     kind: "SW",
     dates: "2026.01",
     href: gh("hermes-medicine-tracker"),
+    impact: "Honorable mention, built solo in 24 hours against teams.",
     notes: [
       "Built solo in 24 hours at the Cline × Cerebras.AI hackathon (honorable mention against teams). Warns users about dangerous drug combinations using FDA data on reported side effects.",
     ],
@@ -212,6 +220,7 @@ export const keyboards = {
     what: "mechanical keyboard",
     stack: "Circuit design, KiCad, Python",
     dates: "2026.10",
+    impact: "Every key works and none interfere in 5,000 random key combinations, checked before manufacturing.",
     notes: [
       "An 88-key keyboard circuit board with per-key lighting, a volume knob, and a built-in fingerprint reader, reporting key presses 8,000 times per second.",
       "Generated the board with Python scripts and checked it with circuit and signal simulations before manufacturing: every key works and none interfere in 5,000 random key combinations.",
@@ -223,6 +232,7 @@ export const keyboards = {
     stack: "Circuit design, KiCad",
     dates: "2025.12 → now",
     href: gh("prometheus-65"),
+    impact: "Taught myself electrical engineering to build it; users set how far each key must be pressed.",
     notes: [
       "A keyboard and its circuit board designed from scratch, teaching myself electrical engineering along the way.",
       "Combines mechanical switches with magnetic sensors that let users set how far each key must be pressed. Grew from a 60% to a 75% layout over several versions.",
@@ -271,7 +281,15 @@ export const education = {
       ["PHY400", "Modern Physics", ""],
       ["REL460", "Ethics of the Marketplace", "A"],
     ] as [string, string, string][],
-    senior: ["INT455 Principles of Engineering and Design", "MAT520 Calculus", "PHY470 Introductory Astronomy", "HIS410 U.S. History"],
+    senior: [
+      "INT455 Principles of Engineering and Design",
+      "MAT520 Calculus",
+      "PHY470 Introductory Astronomy",
+      "HIS410 U.S. History",
+      "Computer Architecture",
+      "Mathematical Modeling",
+      "Graphics Programming",
+    ],
     ap: [
       ["Calculus AB", "5"],
       ["Computer Science A", "5"],

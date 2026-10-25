@@ -1,14 +1,13 @@
 ---
 import { person } from "../data/site";
 const built = new Date();
-const updated = built.toISOString().slice(0, 10);
 const version = `v${built.getUTCFullYear()}.${String(built.getUTCMonth() + 1).padStart(2, "0")}`;
 ---
 
 <section class="hero wrap">
   <div class="hero-top">
     <h1 class="wordmark">
-      <span class="wordmark-block">ANSHUL_NOORI</span><sup class="ver">{version}</sup>
+      <span class="wordmark-block">Anshul Noori</span><sup class="ver">{version}</sup>
     </h1>
     <ul class="hero-links">
       <li><a href={`mailto:${person.email}`}><span aria-hidden="true">@</span> Email</a></li>
@@ -17,15 +16,8 @@ const version = `v${built.getUTCFullYear()}.${String(built.getUTCMonth() + 1).pa
     </ul>
   </div>
 
-  <table class="spec">
-    <tbody>
-      <tr><th>Updated</th><td>{updated}</td><th>Status</th><td>Class of 2027</td></tr>
-      <tr><th>Based</th><td>Exeter, NH</td><th>Role</th><td>CTO, Topit AI</td></tr>
-    </tbody>
-  </table>
-
-  <p class="caption">
-    Anshul Noori is a student at Phillips Exeter Academy who works on build systems, graphics, and
-    keyboards, and sends the fixes upstream.
+  <p class="lede">
+    Student at Phillips Exeter Academy, class of 2027, and CTO of Topit AI. I work on build systems, graphics,
+    and keyboards, and send the fixes upstream.
   </p>
 </section>

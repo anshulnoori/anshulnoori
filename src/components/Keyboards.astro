@@ -14,7 +14,8 @@ const keys: K[] = [];
 // F-row
 keys.push([0, 0, 1]);
 for (const [start, n] of [[2, 4], [6.5, 4], [11, 4]] as const) for (let i = 0; i < n; i++) keys.push([start + i, 0, 1]);
-for (let i = 0; i < 3; i++) keys.push([15.25 + i, 0, 1]);
+// The top-right key is replaced by the volume knob.
+for (let i = 0; i < 2; i++) keys.push([15.25 + i, 0, 1]);
 for (const [y, widths] of rows) {
   let x = 0;
   for (const w of widths) {
@@ -39,21 +40,22 @@ const pro = keyboards.prometheus;
 
     <div class="kb-top">
       <figure class="kb-fig">
-        <svg viewBox="-20 -80 800 410" role="img" aria-label="Line drawing of a tenkeyless keyboard with callouts">
+        <svg viewBox="-20 -70 930 400" role="img" aria-label="Line drawing of a tenkeyless keyboard with callouts">
           <rect class="case" x="-12" y="-12" width={18.25 * U + 24} height={6.25 * U + 24} rx="6"></rect>
           {keys.map(([x, y, w]) => <rect x={x * U + P} y={y * U + P} width={w * U - 2 * P} height={U - 2 * P} rx="2" />)}
-          <circle class="knob" cx={16.75 * U} cy={-34} r="16"></circle>
-          <path class="call" d={`M${16.75 * U + 16} -34 H780`}></path>
-          <text x="780" y="-40" text-anchor="end">VOLUME KNOB</text>
+          <circle class="knob" cx={17.75 * U} cy={0.5 * U} r="15"></circle>
+          <circle class="knob-dot" cx={17.75 * U} cy={0.5 * U - 9} r="2"></circle>
+          <path class="call" d={`M${17.75 * U + 15} ${0.5 * U} H${18.25 * U + 20}`}></path>
+          <text x={18.25 * U + 26} y={0.5 * U + 4}>VOLUME KNOB</text>
+          <rect class="fp" x={16.25 * U + 2} y={3.25 * U + 8} width={U - 4} height={U - 16} rx="6"></rect>
+          <path class="call" d={`M${17.25 * U - 2} ${3.75 * U} H${18.25 * U + 20}`}></path>
+          <text x={18.25 * U + 26} y={3.75 * U + 4}>FINGERPRINT READER</text>
           <path class="call" d={`M${3.5 * U} ${3.75 * U} L${3.5 * U} 300 H300`}></path>
           <text x={3.5 * U + 10} y="294">PER-KEY LIGHTING</text>
-          <rect class="fp" x={13.4 * U} y={-30} width="30" height="16"></rect>
-          <path class="call" d={`M${13.4 * U} -22 H360`}></path>
-          <text x="360" y="-28">FINGERPRINT READER</text>
-          <path class="call" d={`M${8 * U} -12 V-48 H${8 * U - 160}`}></path>
-          <text x={8 * U - 160} y="-54">8,000 HZ POLLING</text>
+          <path class="call" d={`M${8 * U} -12 V-40 H${8 * U - 160}`}></path>
+          <text x={8 * U - 160} y="-46">8,000 HZ POLLING</text>
         </svg>
-        <figcaption>Schematic only, not the real IO80 layout.</figcaption>
+        <figcaption>Simplified drawing of the IO80 layout.</figcaption>
       </figure>
 
       <div class="kb-big">
@@ -66,6 +68,7 @@ const pro = keyboards.prometheus;
       <article>
         <p class="meta"><span>Project 15</span><span>[HW]</span><span>{io.stack}</span><span>{io.dates}</span></p>
         <h3 class="spec-name">{io.name}<span class="dim">, {io.what}</span></h3>
+        <p class="impact">{io.impact}</p>
         {io.notes.map((n) => <p>{n}</p>)}
         <dl class="gauges">
           <dt>Random key combinations without interference</dt>
@@ -81,6 +84,7 @@ const pro = keyboards.prometheus;
           <a href={pro.href}><span aria-hidden="true">↗</span> Source</a>
         </p>
         <h3 class="spec-name">{pro.name}<span class="dim">, {pro.what}</span></h3>
+        <p class="impact">{pro.impact}</p>
         {pro.notes.map((n) => <p>{n}</p>)}
         <div class="packet" role="table" aria-label="Prometheus summary">
           <div role="row" class="pk-row">

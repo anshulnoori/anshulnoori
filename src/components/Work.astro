@@ -1,64 +1,43 @@
 ---
 import { topit } from "../data/site";
-import { barcodePath } from "../lib/barcode";
+
+const stats = [
+  ["9s", "Full build of the codebase, cached"],
+  ["52s", "Full build from scratch"],
+  ["230 MB → 16 KB", "Code downloaded per automated deploy"],
+];
 ---
 
 <section id="work" class="sect work wrap" aria-labelledby="work-h">
-  <h2 id="work-h" class="sect-label"><span>03</span> Work</h2>
+  <h2 id="work-h" class="sect-label"><span>02</span> Work</h2>
 
-  <div class="work-collage">
-    <article class="pass" aria-label="Topit AI, Chief Technology Officer">
-      <div class="pass-stub">
-        <p class="lbl">Passenger</p>
-        <p class="val-s">Noori, A.</p>
-        <p class="lbl">Seat</p>
-        <p class="val-s">CTO</p>
-      </div>
-      <div class="pass-main">
-        <div class="pass-head">
-          <p class="pass-co">Topit AI<br /><span class="dim">Chief Technology Officer</span></p>
-          <svg class="barcode" viewBox="0 0 120 1" preserveAspectRatio="none" aria-hidden="true"
-            ><path d={barcodePath("topit-ai-cto")}></path></svg>
-        </div>
-        <div class="pass-route">
-          <div><p class="lbl">Origin</p><p class="val-l">GH</p><p class="val-s">GitHub</p></div>
-          <p class="arrow" aria-hidden="true">►►</p>
-          <div><p class="lbl">Destination</p><p class="val-l">GL</p><p class="val-s">GitLab on AWS</p></div>
-        </div>
-        <div class="pass-grid">
-          <div><p class="lbl">Build, cached</p><p class="val-l">9s</p></div>
-          <div><p class="lbl">Build, cold</p><p class="val-l">52s</p></div>
-          <div><p class="lbl">Deploy pull</p><p class="val-l">16KB</p></div>
-        </div>
-      </div>
-    </article>
+  <article class="role">
+    <header class="role-head">
+      <h3 class="role-name">Topit AI</h3>
+      <p class="role-title">Chief Technology Officer <span class="dim">· present</span></p>
+    </header>
+    <p class="role-what">An AI startup that helps people choose their best photos.</p>
 
-    <article class="receipt" aria-label="Cloud spending audit">
-      <p class="center">Topit AI<br />Cloud spending audit</p>
-      <p class="center dim">Self-hosted GitLab, AWS</p>
-      <dl>
-        <dt>Deploy download, before</dt><dd>230 MB</dd>
-        <dt>Deploy download, after</dt><dd>16 KB</dd>
-        <dt>Unchanged code tests</dt><dd>SKIPPED</dd>
-        <dt>Cloud infrastructure</dt><dd>AS CODE</dd>
-        <dt>Sign-in</dt><dd>GOOGLE</dd>
-        <dt>Backups</dt><dd>AUTOMATIC</dd>
-      </dl>
-      <p class="center dim">*** thank you ***</p>
-    </article>
+    <dl class="stats">
+      {
+        stats.map(([v, l]) => (
+          <div>
+            <dt>{l}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))
+      }
+    </dl>
 
-    <aside class="tag" aria-label="PuroPlate, Technical Consultant">
-      <span class="tag-hole" aria-hidden="true"></span>
-      <p class="tag-v">PuroPlate</p>
-      <p class="tag-v small">Technical consultant</p>
-    </aside>
-  </div>
-
-  <div class="work-notes">
-    <p class="meta">Topit AI · Chief Technology Officer · present</p>
-    <ul class="dash">
+    <ul class="dash role-notes">
       {topit.notes.map((n) => <li>{n}</li>)}
     </ul>
-    <p class="meta">PuroPlate · Technical Consultant · present</p>
-  </div>
+  </article>
+
+  <article class="role role-small">
+    <header class="role-head">
+      <h3 class="role-name">PuroPlate</h3>
+      <p class="role-title">Technical Consultant <span class="dim">· present</span></p>
+    </header>
+  </article>
 </section>

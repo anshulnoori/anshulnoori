@@ -1,11 +1,10 @@
 ---
 import { openSource } from "../data/site";
-const prUrl = (c: (typeof openSource)[number]) =>
-  c.pr ? `https://github.com/${c.owner}/${c.repo}/pull/${c.pr}` : `https://github.com/${c.owner}/${c.repo}`;
+const repoUrl = (c: (typeof openSource)[number]) => `https://github.com/${c.owner}/${c.repo}`;
 ---
 
 <section id="oss" class="sect oss wrap" aria-labelledby="oss-h">
-  <h2 id="oss-h" class="sect-label"><span>02</span> Open source</h2>
+  <h2 id="oss-h" class="sect-label"><span>03</span> Open source</h2>
 
   <div class="board-scroll">
     <table class="board">
@@ -18,11 +17,9 @@ const prUrl = (c: (typeof openSource)[number]) =>
           openSource.map((c, i) => (
             <tr class={i === 0 ? "is-hl" : undefined}>
               <td>
-                <a href={prUrl(c)}>
-                  <span class="cd">{c.code}</span> {c.repo}
-                </a>
+                <span class="cd">{c.code}</span> <a href={repoUrl(c)}>{c.repo}</a>
               </td>
-              <td class="c-pr">{c.pr ? `#${c.pr}` : "--"}</td>
+              <td class="c-pr">{c.pr ? <a href={`${repoUrl(c)}/pull/${c.pr}`}>#{c.pr}</a> : "--"}</td>
               <td class="c-lang">{c.lang}</td>
               <td class="c-date">{c.date}</td>
               <td class={c.status === "MERGED" ? "st-ok" : "st-wait"}>{c.status === "MERGED" ? "Merged" : "Upcoming"}</td>
@@ -34,9 +31,8 @@ const prUrl = (c: (typeof openSource)[number]) =>
   </div>
 
   <p class="caption">
-    {openSource.filter((c) => c.status === "MERGED").length} merged upstream, {
-      openSource.filter((c) => c.status !== "MERGED").length
-    } upcoming. Rust, C++, Objective-C++, Nix, Go.
+    These patches came out of my own projects. Silt, my game engine, needed a graphics feature Macs lacked, so I
+    added it to MoltenVK. The niks3 changes were first built for Topit's build cache.
   </p>
 
   <ol class="board-notes">

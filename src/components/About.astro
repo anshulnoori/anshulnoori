@@ -1,6 +1,7 @@
 ---
 import QRCode from "qrcode";
 import { person } from "../data/site";
+import { barcodePath } from "../lib/barcode";
 
 const qr = await QRCode.toString(`https://github.com/${person.github}`, {
   type: "svg",
@@ -56,6 +57,7 @@ const month = new Date().toLocaleString("en-US", { month: "long", year: "numeric
       <dl class="ind opts">
         <dt><a href="#oss">~/oss</a></dt><dd>patches sent upstream</dd>
         <dt><a href="#work">~/work</a></dt><dd>Topit AI, PuroPlate</dd>
+        <dt><a href="#school">~/school</a></dt><dd>Exeter, Stanford OHS</dd>
         <dt><a href="#projects">~/projects</a></dt><dd>engines, mods, tools</dd>
         <dt><a href="#keyboards">~/keyboards</a></dt><dd>IO80, Prometheus</dd>
       </dl>
@@ -74,17 +76,26 @@ const month = new Date().toLocaleString("en-US", { month: "long", year: "numeric
       <svg class="qr" viewBox={`0 0 ${qrSize} ${qrSize}`} role="img" aria-label="QR code for github.com/anshulnoori"
         ><path d={qrPath}></path></svg>
       <p class="card-tan-note">
-        Scan for source: github.com/{person.github}. Upstream patches are listed in section 02, including
+        Scan for source: github.com/{person.github}. Upstream patches are listed in section 03, including
         upcoming Buck2 and niks3 work.
       </p>
     </aside>
 
-    <aside class="card-dark" aria-label="Student card">
-      <div class="card-dark-bar"></div>
-      <p class="card-dark-kicker">Student</p>
-      <div class="dither"></div>
-      <p class="card-dark-name">Phillips<br />Exeter</p>
-      <p class="card-dark-num">27</p>
+    <aside class="badge" aria-label="Student ID: Anshul Noori, Phillips Exeter Academy, Class of 2027">
+      <span class="badge-slot" aria-hidden="true"></span>
+      <p class="badge-school">Phillips Exeter Academy</p>
+      <p class="badge-place">Exeter, New Hampshire</p>
+      <div class="badge-body">
+        <div class="badge-photo" aria-hidden="true"><span>AN</span></div>
+        <dl class="badge-fields">
+          <dt>Name</dt><dd>Anshul Noori</dd>
+          <dt>Status</dt><dd>Student</dd>
+          <dt>Class of</dt><dd>2027</dd>
+        </dl>
+      </div>
+      <svg class="badge-code" viewBox="0 0 120 1" preserveAspectRatio="none" aria-hidden="true"
+        ><path d={barcodePath("anshul-noori-pea-2027")}></path></svg>
+      <p class="badge-foot"><span>Student ID</span><span>2027</span></p>
     </aside>
   </div>
 </section>

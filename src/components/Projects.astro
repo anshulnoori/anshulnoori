@@ -26,6 +26,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
             )}
           </p>
           <h3 class="spec-name">{p.name}<span class="dim">, {p.what}</span></h3>
+          {p.impact && <p class="impact">{p.impact}</p>}
           {p.notes.map((n) => (
             <p>{n}</p>
           ))}
@@ -35,16 +36,18 @@ const pad = (n: number) => String(n).padStart(2, "0");
   </ol>
 
   <h3 class="sub-label">Also</h3>
-  <ul class="index">
+  <ul class="also">
     {
       smallProjects.map((p, i) => (
         <li>
-          <span class="idx">{pad(projects.length + i + 1)}</span>
-          <span class="kind">[{p.kind}]</span>
-          <span class="nm">{p.href ? <a href={p.href}>{p.name}</a> : p.name}</span>
-          <span class="desc">{p.what}</span>
-          <span class="stk">{p.stack}</span>
-          <span class="dt">{p.dates ?? ""}</span>
+          <p class="meta">
+            <span>{pad(projects.length + i + 1)}</span>
+            <span>[{p.kind}]</span>
+            <span>{p.stack}</span>
+            {p.dates && <span>{p.dates}</span>}
+          </p>
+          <h4 class="also-name">{p.href ? <a href={p.href}>{p.name}</a> : p.name}</h4>
+          <p>{p.what[0].toUpperCase() + p.what.slice(1)}.</p>
         </li>
       ))
     }
