@@ -234,6 +234,7 @@ kbd {
 /* ---------- top bar (tabs and the globe palette) ---------- */
 
 .topbar {
+  anchor-name: --topbar;
   position: sticky;
   top: 0;
   z-index: 10;
@@ -247,13 +248,23 @@ kbd {
   line-height: var(--lh);
 }
 
+/* The tabs are a popover only on phones; elsewhere undo the UA popover styles. */
 .tabs {
+  position: static;
+  inset: auto;
   display: flex;
   gap: 0 1.5ch;
   flex: 1;
   min-width: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
   overflow-x: auto;
   scrollbar-width: none;
+  color: inherit;
+  background: none;
 }
 
 .tabs a {
@@ -303,6 +314,12 @@ kbd {
   color: #1a1a1a;
 }
 
+.menu-btn {
+  display: none;
+  margin-right: auto;
+}
+
+.menu-btn,
 .theme-btn {
   font: inherit;
   text-transform: inherit;
@@ -311,6 +328,49 @@ kbd {
   border: 0;
   padding: 0;
   cursor: pointer;
+}
+
+/* Keep every tab visible: drop the numbers, then shrink, then fold into a menu.
+   Breakpoints leave room for a 15px classic scrollbar. */
+@media (max-width: 1483px) {
+  .tab-n {
+    display: none;
+  }
+}
+
+@media (max-width: 1203px) {
+  .topbar {
+    font-size: 13px;
+  }
+
+  .tabs {
+    gap: 0 1ch;
+  }
+}
+
+@media (max-width: 959px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .tabs:not(:popover-open) {
+    display: none;
+  }
+
+  .tabs:popover-open {
+    position: fixed;
+    inset: 41px 0 auto;
+    top: anchor(--topbar bottom, 41px);
+    flex-direction: column;
+    padding: 8px 22px 14px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    font: var(--f1) / 33px var(--display);
+  }
+
+  .tabs:popover-open .tab-n {
+    display: inline;
+  }
 }
 
 .keys {

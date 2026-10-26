@@ -46,6 +46,13 @@ addEventListener("keydown", (e) => {
 
 document.querySelector("[data-theme-toggle]")?.addEventListener("click", toggleTheme);
 
+// On phones the tabs are a popover menu; close it once a section is picked.
+const menu = document.querySelector<HTMLElement>(".tabs");
+menu?.addEventListener("click", (e) => {
+  if (!(e.target as Element).closest("a") || !menu.matches(":popover-open")) return;
+  menu.hidePopover();
+});
+
 let active: HTMLAnchorElement | undefined;
 function mark() {
   const tab = tabs.get(sections[current()]?.id ?? "");
