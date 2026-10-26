@@ -1,0 +1,214 @@
+---
+import { cv } from "../lib/cv";
+import { person, openSource, keyboards, projects, education } from "../data/site";
+
+const silt = projects.find((p) => p.id === "silt")!;
+const io = keyboards.io80;
+const pro = keyboards.prometheus;
+const merged = openSource.filter((c) => c.status === "MERGED");
+const places = [
+  ["school", "School", "#school"],
+  ["keyboards", "Keyboards", "#keyboards"],
+  ["oss", "Open source", "#oss"],
+  ["homelab", "Homelab", "#homelab"],
+  ["silt", "Silt", "#silt"],
+] as const;
+const n = (i: number) => String(i + 1).padStart(2, "0");
+---
+
+<section class="world" data-world aria-labelledby="world-h">
+  <canvas class="world-canvas" aria-hidden="true"></canvas>
+  <svg class="world-lines" aria-hidden="true"></svg>
+
+  <nav class="world-places" aria-label="Places on the planet">
+    {places.map(([id, label, href], i) => (
+      <a href={href} data-place={id}>
+        <span>{n(i)}</span> {label}
+      </a>
+    ))}
+  </nav>
+
+  <p class="world-crumb" aria-live="polite"></p>
+  <button class="world-back" type="button" hidden>
+    <kbd>Esc</kbd> Back
+  </button>
+
+  <div class="world-intro">
+    <h1 id="world-h" class="wordmark">
+      Anshul Noori
+    </h1>
+    <p class="lede">
+      Student at Phillips Exeter Academy, class of 2027, and CTO of Topit AI. I build game engines, keyboards, and
+      infrastructure, and send the fixes upstream.
+    </p>
+    <ul class="hero-links">
+      <li>
+        <a href={`mailto:${person.email}`}>
+          <span aria-hidden="true">@</span> Email
+        </a>
+      </li>
+      <li>
+        <a href={`https://github.com/${person.github}`} target="_blank">
+          <span aria-hidden="true">&gt;</span> GitHub
+        </a>
+      </li>
+      {cv && (
+        <li>
+          <a href={cv.href} download={cv.file}>
+            <span aria-hidden="true">↓</span> CV
+          </a>
+        </li>
+      )}
+      <li>
+        <a href="#about">
+          <span aria-hidden="true">↓</span> Read the page
+        </a>
+      </li>
+    </ul>
+  </div>
+  <p class="world-hint" aria-hidden="true">
+    <span>↻</span> Drag to spin · Pick a place to visit
+  </p>
+
+  <article class="world-card" data-card="school" hidden>
+    <header class="man-head">
+      <span>SCHOOL(1)</span>
+      <span>01</span>
+    </header>
+    <h2>{education.exeter.name}</h2>
+    <p class="dim">Class of 2027 · after Stanford Online High School, grades 6-8</p>
+    <p class="impact">AP Calculus AB, Computer Science A, and Physics 1: all 5s.</p>
+    <p>
+      Game Playing AI and Game Development (both A). This year: Computer Architecture, Mathematical Modeling, and
+      Graphics Programming.
+    </p>
+    <p class="card-links">
+      <a href="#school">Read more ↓</a>
+    </p>
+  </article>
+
+  <article class="world-card" data-card="keyboards" hidden>
+    <header class="man-head">
+      <span>KEYBOARDS(2)</span>
+      <span>02</span>
+    </header>
+    <h2>Keyboards, from the PCB up</h2>
+    <p class="impact">{io.impact}</p>
+    <dl class="card-list">
+      <dt>IO80</dt>
+      <dd>88 keys, volume knob, fingerprint reader, 8,000 Hz.</dd>
+      <dt>Prometheus</dt>
+      <dd>Magnetic sensors; users set how far each key must be pressed.</dd>
+    </dl>
+    <p class="card-links">
+      <button type="button" class="btn" data-closer>
+        Closer: IO80 →
+      </button>
+      <a href="#keyboards">Read more ↓</a>
+    </p>
+  </article>
+
+  <article class="world-card" data-card="oss" hidden>
+    <header class="man-head">
+      <span>OPEN-SOURCE(3)</span>
+      <span>03</span>
+    </header>
+    <h2>Patches sent upstream</h2>
+    <p class="impact">Buck2 #1418: 501 of 526 build steps reused instead of rerun.</p>
+    <dl class="card-list">
+      {merged.map((c) => (
+        <>
+          <dt>{c.repo}</dt>
+          <dd>
+            #{c.pr} · {c.lang} · merged
+          </dd>
+        </>
+      ))}
+      <dt>Buck2, niks3</dt>
+      <dd>Upcoming</dd>
+    </dl>
+    <p class="card-links">
+      <a href="#oss">Read more ↓</a>
+    </p>
+  </article>
+
+  <article class="world-card" data-card="homelab" hidden>
+    <header class="man-head">
+      <span>HOMELAB(4)</span>
+      <span>04</span>
+    </header>
+    <h2>A laptop running Kubernetes</h2>
+    <p class="impact">Isolated virtual machines for untrusted code start in about 2 seconds.</p>
+    <p>
+      Set up entirely from config files in Git. Hosts my email system, automations, and AI models on its graphics card,
+      behind private remote access and single sign-on.
+    </p>
+    <p class="card-links">
+      <a href="#homelab">Read more ↓</a>
+    </p>
+  </article>
+
+  <article class="world-card" data-card="silt" hidden>
+    <header class="man-head">
+      <span>SILT(5)</span>
+      <span>05</span>
+    </header>
+    <h2>
+      {silt.name}, {silt.what}
+    </h2>
+    <p class="dim">
+      {silt.stack} · {silt.dates}
+    </p>
+    <p class="impact">{silt.impact}</p>
+    <p>
+      Draws only as much detail as the screen can show, so large worlds stay fast, and loads the world ahead of where
+      the player is heading.
+    </p>
+    <p class="card-links">
+      <a href={silt.href} target="_blank">
+        Source ↗
+      </a>
+      <a href="#silt">Read more ↓</a>
+    </p>
+  </article>
+
+  <div class="io80" hidden>
+    <article class="io80-card">
+      <h2 class="io80-title">{io.name}</h2>
+      <p class="dim">
+        88-key mechanical keyboard · {io.stack} · {io.dates}
+      </p>
+      <p class="impact">{io.impact}</p>
+      <p>{io.notes[0]}</p>
+      <dl class="stats io80-stats">
+        <div>
+          <dt>Report rate</dt>
+          <dd>8,000 Hz</dd>
+        </div>
+        <div>
+          <dt>Combos passed</dt>
+          <dd>5,000</dd>
+        </div>
+      </dl>
+      <p class="dim">
+        Also:{" "}
+        <a href={pro.href} target="_blank">
+          Prometheus
+        </a>
+        , {pro.what}.
+      </p>
+    </article>
+    <div class="io80-tags" aria-hidden="true"></div>
+    <div class="io80-controls">
+      <div class="seg" role="group" aria-label="View">
+        <button type="button" data-explode="0" aria-pressed="false">
+          Assembled
+        </button>
+        <button type="button" data-explode="1" aria-pressed="true">
+          Exploded
+        </button>
+      </div>
+      <p class="dim">Drag to rotate · Type to press keys</p>
+    </div>
+  </div>
+</section>

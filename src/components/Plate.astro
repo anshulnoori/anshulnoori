@@ -1,0 +1,24 @@
+---
+// Drawn by scripts/world/plates.ts; hidden without WebGL.
+import { coords, places, type PlaceId } from "../lib/places";
+
+interface Props {
+  id: PlaceId;
+  fig: number;
+  class?: string;
+}
+const { id, fig, class: cls } = Astro.props;
+---
+
+<figure class:list={["plate", cls]} data-plate={id} aria-hidden="true">
+  <canvas></canvas>
+  <figcaption>
+    <span>Fig. {fig}</span>
+    <span>
+      {places[id].name} · {coords(id)}
+    </span>
+    <button type="button" class="plate-go" data-globe={id} tabindex="-1">
+      Show on globe ↑
+    </button>
+  </figcaption>
+</figure>

@@ -16,7 +16,9 @@ const month = new Date().toLocaleString("en-US", { month: "long", year: "numeric
 ---
 
 <section id="about" class="sect about wrap" aria-labelledby="about-h">
-  <h2 id="about-h" class="sect-label"><span>01</span> About</h2>
+  <h2 id="about-h" class="sect-label">
+    <span>01</span> About
+  </h2>
 
   <svg class="about-lines" viewBox="0 0 1200 760" aria-hidden="true" preserveAspectRatio="none">
     <circle cx="160" cy="620" r="300"></circle>
@@ -26,58 +28,89 @@ const month = new Date().toLocaleString("en-US", { month: "long", year: "numeric
 
   <div class="collage">
     <article class="sheet manpage" aria-label="Manual page">
-      <header class="man-head"><span>ANSHUL(1)</span><span>Personal Manual</span><span>ANSHUL(1)</span></header>
+      <header class="man-head">
+        <span>ANSHUL(1)</span>
+        <span>Personal Manual</span>
+        <span>ANSHUL(1)</span>
+      </header>
 
       <h3>NAME</h3>
       <p class="ind">anshul - student, CTO, open source contributor</p>
 
       <h3>SYNOPSIS</h3>
       <p class="ind">
-        <b>anshul</b> [<b>--build-systems</b>] [<b>--graphics</b>] [<b>--hardware</b>] [<b>--infra</b>]
-        <i>problem</i>
+        <b>anshul</b> [<b>--build-systems</b>] [<b>--graphics</b>] [<b>--hardware</b>] [<b>--infra</b>]<i>problem</i>
       </p>
 
       <h3>DESCRIPTION</h3>
       <p class="ind">
         Anshul Noori is a student at <mark>Phillips Exeter Academy</mark>, class of 2027, and the
-        <mark>CTO of Topit AI</mark>. His patches are merged in Buck2, SPIRV-Cross, MoltenVK, and NixOS on
-        Apple Silicon. He builds a game engine in Zig, keyboards in KiCad, and a home server cluster on
-        Kubernetes.
+        <mark>CTO of Topit AI</mark>. His patches are merged in Buck2, SPIRV-Cross, MoltenVK, and NixOS on Apple
+        Silicon. He builds a game engine in Zig, keyboards in KiCad, and a home server cluster on Kubernetes.
       </p>
 
       <h3>OPTIONS</h3>
       <dl class="ind opts">
-        <dt>--build-systems</dt><dd>Buck2, remote builds, shared caches</dd>
-        <dt>--graphics</dt><dd>Vulkan, Metal, SPIR-V, CUDA</dd>
-        <dt>--hardware</dt><dd>KiCad, STM32, QMK, PCB design</dd>
-        <dt>--infra</dt><dd>Kubernetes, NixOS, Cloudflare, AWS</dd>
+        <dt>--build-systems</dt>
+        <dd>Buck2, remote builds, shared caches</dd>
+        <dt>--graphics</dt>
+        <dd>Vulkan, Metal, SPIR-V, CUDA</dd>
+        <dt>--hardware</dt>
+        <dd>KiCad, STM32, QMK, PCB design</dd>
+        <dt>--infra</dt>
+        <dd>Kubernetes, NixOS, Cloudflare, AWS</dd>
       </dl>
 
       <h3>FILES</h3>
       <dl class="ind opts">
-        <dt><a href="#oss">~/oss</a></dt><dd>patches sent upstream</dd>
-        <dt><a href="#work">~/work</a></dt><dd>Topit AI, PuroPlate</dd>
-        <dt><a href="#school">~/school</a></dt><dd>Exeter, Stanford OHS</dd>
-        <dt><a href="#projects">~/projects</a></dt><dd>engines, mods, tools</dd>
-        <dt><a href="#keyboards">~/keyboards</a></dt><dd>IO80, Prometheus</dd>
+        <dt>
+          <a href="#oss">~/oss</a>
+        </dt>
+        <dd>patches sent upstream</dd>
+        <dt>
+          <a href="#work">~/work</a>
+        </dt>
+        <dd>Topit AI, PuroPlate</dd>
+        <dt>
+          <a href="#school">~/school</a>
+        </dt>
+        <dd>Exeter, Stanford OHS</dd>
+        <dt>
+          <a href="#projects">~/projects</a>
+        </dt>
+        <dd>engines, mods, tools</dd>
+        <dt>
+          <a href="#keyboards">~/keyboards</a>
+        </dt>
+        <dd>IO80, Prometheus</dd>
       </dl>
 
       <h3>SEE ALSO</h3>
       <p class="ind">
-        <a href={`https://github.com/${person.github}`}>github</a>(1), <a href={`mailto:${person.email}`}>mail</a>(1)
+        <a href={`https://github.com/${person.github}`} target="_blank">
+          github
+        </a>
+        (1), <a href={`mailto:${person.email}`}>mail</a>(1)
       </p>
 
-      <footer class="man-head"><span>Exeter, NH</span><span>{month}</span><span>ANSHUL(1)</span></footer>
+      <footer class="man-head">
+        <span>Exeter, NH</span>
+        <span>{month}</span>
+        <span>ANSHUL(1)</span>
+      </footer>
     </article>
 
     <aside class="card-tan" aria-label="Currently">
-      <svg class="clip" viewBox="0 0 24 64" aria-hidden="true"><path d="M8 60V12a6 6 0 0 1 12 0v40a4 4 0 0 1-8 0V18"></path></svg>
+      <svg class="clip" viewBox="0 0 24 64" aria-hidden="true">
+        <path d="M8 60V12a6 6 0 0 1 12 0v40a4 4 0 0 1-8 0V18"></path>
+      </svg>
       <p class="card-tan-title">Currently: CTO at Topit AI. Patching Buck2 and niks3.</p>
-      <svg class="qr" viewBox={`0 0 ${qrSize} ${qrSize}`} role="img" aria-label="QR code for github.com/anshulnoori"
-        ><path d={qrPath}></path></svg>
+      <svg class="qr" viewBox={`0 0 ${qrSize} ${qrSize}`} role="img" aria-label="QR code for github.com/anshulnoori">
+        <path d={qrPath}></path>
+      </svg>
       <p class="card-tan-note">
-        Scan for source: github.com/{person.github}. Upstream patches are listed in section 03, including
-        upcoming Buck2 and niks3 work.
+        Scan for source: github.com/{person.github}. Upstream patches are listed in section 03, including upcoming Buck2
+        and niks3 work.
       </p>
     </aside>
 
@@ -86,16 +119,25 @@ const month = new Date().toLocaleString("en-US", { month: "long", year: "numeric
       <p class="badge-school">Phillips Exeter Academy</p>
       <p class="badge-place">Exeter, New Hampshire</p>
       <div class="badge-body">
-        <div class="badge-photo" aria-hidden="true"><span>AN</span></div>
+        <div class="badge-photo" aria-hidden="true">
+          <span>AN</span>
+        </div>
         <dl class="badge-fields">
-          <dt>Name</dt><dd>Anshul Noori</dd>
-          <dt>Status</dt><dd>Student</dd>
-          <dt>Class of</dt><dd>2027</dd>
+          <dt>Name</dt>
+          <dd>Anshul Noori</dd>
+          <dt>Status</dt>
+          <dd>Student</dd>
+          <dt>Class of</dt>
+          <dd>2027</dd>
         </dl>
       </div>
-      <svg class="badge-code" viewBox="0 0 120 1" preserveAspectRatio="none" aria-hidden="true"
-        ><path d={barcodePath("anshul-noori-pea-2027")}></path></svg>
-      <p class="badge-foot"><span>Student ID</span><span>2027</span></p>
+      <svg class="badge-code" viewBox="0 0 120 1" preserveAspectRatio="none" aria-hidden="true">
+        <path d={barcodePath("anshul-noori-pea-2027")}></path>
+      </svg>
+      <p class="badge-foot">
+        <span>Student ID</span>
+        <span>2027</span>
+      </p>
     </aside>
   </div>
 </section>

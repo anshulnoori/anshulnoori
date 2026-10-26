@@ -1,0 +1,322 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% Placeholder for dates still to be filled in (renders in red)
+\newcommand{\tbd}{\textcolor{red}{Month Year}}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Anshul Noori} \\ \vspace{1pt}
+    \small (425) 571-9015 $|$ \href{mailto:anoori2@exeter.edu}{\underline{anoori2@exeter.edu}} $|$
+    \href{https://anshulnoori.com}{\underline{anshulnoori.com}} $|$
+    \href{https://github.com/anshulnoori}{\underline{github.com/anshulnoori}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Phillips Exeter Academy}{Exeter, NH}
+      {}{Expected June 2027}
+      \resumeItemListStart
+        \resumeItem{\textbf{Computer Science:} CSC590~Game Playing AI (A), CSC590~Game Development (A)}
+        \resumeItem{\textbf{Advanced Coursework:} MAT420--510~Calculus, CHE411--431~Accelerated Chemistry, PHY400~Modern Physics, REL460~Ethics of the Marketplace (A)}
+        \resumeItem{\textbf{Senior Year:} INT455~Principles of Engineering and Design, MAT520~Calculus, PHY470~Introductory Astronomy, HIS410~U.S. History}
+        \resumeItem{\textbf{AP Exams:} Calculus AB (5), Computer Science A (5), Physics 1 (5)}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Stanford Online High School}{Online}
+      {Grades 6--8}{}
+      \resumeItemListStart
+        \resumeItem{\textbf{Coursework:} OCS15~AP Computer Science A (A), OCS25~Data Structures and Algorithms in Java (A), OCS35~Advanced Topics in Computer Science: Computer Systems (A$-$/A)}
+        \resumeItem{Data Structures and Computer Systems are taught at a post-AP, early-college level}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C, C++, Zig, Rust, Go, Python, Nix, OCaml, Kotlin, TypeScript, JavaScript, Java, C\#, Swift, Objective-C, Lua, PHP, SQL, Assembly, Starlark, Bash, Zsh, PowerShell} \\
+     \textbf{GPU \& Graphics}{: Vulkan, Metal, CUDA, Slang, SPIR-V, GLSL} \\
+     \textbf{Frameworks \& Libraries}{: React, Astro, Node.js, Bun, Turborepo, FastAPI, Kotlin Multiplatform, Kotlin Coroutines, Tokio, gRPC, Protocol Buffers, Textual} \\
+     \textbf{Cloud \& Infrastructure}{: Cloudflare, AWS, GCP, Azure, Stripe, E2B, Kubernetes, Docker, OpenTofu, GitLab, GitHub Actions, Buildkite, Buck2, Gradle, Linux, Git} \\
+     \textbf{Hardware}{: KiCad, STM32, QMK, PCB design}
+    }}
+ \end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Chief Technology Officer}{December 2025 -- Present}
+      {Topit AI}{}
+      \resumeItemListStart
+        \resumeItem{Lead technology at an AI startup that helps people choose their best photos, overseeing system design, security, privacy, and image analysis}
+        \resumeItem{Moved the company's code from GitHub to a self-hosted GitLab on AWS, with Google sign-in and automatic backups, and defined all cloud infrastructure as code}
+        \resumeItem{Moved builds onto remote cloud machines with a shared cache, so a full build of the codebase takes 9 seconds when cached and 52 seconds from scratch}
+        \resumeItem{Audited cloud spending and cut waste: each automated deploy now downloads about 16 KB instead of 230 MB of code, and tests skip parts of the code that did not change}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Technical Consultant}{April 2026 -- Present}
+      {PuroPlate}{}
+
+  \resumeSubHeadingListEnd
+
+
+%-----------OPEN SOURCE-----------
+\section{Open Source Contributions}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/facebook/buck2}{Buck2}}, Meta's build system $|$ \emph{Rust}}{July 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Let Go projects save build results to a shared cache so later builds can reuse them; in testing, 501 of 526 build steps were reused instead of rerun (\href{https://github.com/facebook/buck2/pull/1418}{\underline{\#1418}}, merged)}
+            \resumeItem{Building a feature (3,000+ lines) that sends live build and test results to the dashboards Bazel users already use, showing which parts of a build failed (upcoming)}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/Mic92/niks3}{niks3}}, Nix build cache server $|$ \emph{Go}}{October 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Contributing changes, first built for Topit's cache, that let several caches share one storage bucket and let niks3 run on Cloudflare's servers (upcoming)}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/KhronosGroup/SPIRV-Cross}{SPIRV-Cross}}, Khronos Group's shader translator $|$ \emph{C++}}{August 2026}
+          \resumeItemListStart
+            \resumeItem{Added support for a 3D graphics setting that Apple's Metal lacks, so programs written for Vulkan render depth correctly on Apple devices; passed all 319 existing tests (\href{https://github.com/KhronosGroup/SPIRV-Cross/pull/2666}{\underline{\#2666}}, merged)}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/KhronosGroup/MoltenVK}{MoltenVK}}, Khronos Group's Vulkan for Apple devices $|$ \emph{Objective-C++}}{April 2026}
+          \resumeItemListStart
+            \resumeItem{Added a Vulkan graphics feature that controls depth clipping, so games and apps that need it can run on Macs and iPhones (\href{https://github.com/KhronosGroup/MoltenVK/pull/2712}{\underline{\#2712}}, merged)}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/nix-community/nixos-apple-silicon}{NixOS on Apple Silicon}}, nix-community $|$ \emph{Nix}}{March 2026}
+          \resumeItemListStart
+            \resumeItem{Added support for the Limine boot loader to the project that runs NixOS Linux on Apple Silicon Macs (\href{https://github.com/nix-community/nixos-apple-silicon/pull/429}{\underline{\#429}}, merged)}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/silt}{Silt}}, 3D game engine $|$ \emph{Zig, Vulkan}}{April 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Building a game engine from scratch for Windows, macOS, and Linux; when Macs lacked a graphics feature it needed, I added that feature to MoltenVK}
+            \resumeItem{Draws only as much detail as the screen can show, similar to Unreal Engine's Nanite, so large worlds stay fast}
+            \resumeItem{Loads parts of the world in the background by predicting where the player is heading}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/trading}{Trading}}, automated trading system $|$ \emph{Rust, Python, SQL}}{July 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Building a system that researches, tests, and runs stock and options trading strategies, with statistical checks against lucky results and human approval required before any real money is used}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Homelab}, home server cluster $|$ \emph{Kubernetes, NixOS}}{October 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Turned a laptop into a home server running Kubernetes, set up entirely from config files in Git; it hosts my email system, automations, and AI models on its graphics card}
+            \resumeItem{Set up private remote access with single sign-on, a password-manager-backed secret store, and isolated virtual machines that start in about 2 seconds for running untrusted code}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{IO80}, mechanical keyboard $|$ \emph{Circuit Design, KiCad, Python}}{October 2026}
+          \resumeItemListStart
+            \resumeItem{Designed an 88-key keyboard circuit board with per-key lighting, a volume knob, and a built-in fingerprint reader, reporting key presses 8,000 times per second}
+            \resumeItem{Generated the board with Python scripts and checked it with circuit and signal simulations before manufacturing: every key works and none interfere in 5,000 random key combinations}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/prometheus-65}{Prometheus}}, custom keyboard $|$ \emph{Circuit Design, KiCad}}{December 2025 -- Present}
+          \resumeItemListStart
+            \resumeItem{Designed a keyboard and its circuit board from scratch, teaching myself electrical engineering along the way}
+            \resumeItem{Combines mechanical switches with magnetic sensors that let users set how far each key must be pressed; grew from a 60\% to a 75\% layout over several versions}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/twentytwentyvision}{20/20 Vision}}, Minecraft mod $|$ \emph{Rust, Kotlin, Vulkan}}{April 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Building a mod that lets players see much farther by drawing distant terrain at lower detail and moving the drawing work to the graphics card}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/gum}{Gum}}, robotics framework $|$ \emph{Kotlin}}{July 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Replaced my FTC team's standard tools with an open-source framework, published for other teams, that makes robot code simpler to write and lets teams update code on the robot between matches}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Whoof}, Whoop for guide dogs $|$ \emph{Python, PyTorch, Hardware}}{July 2025 -- Present}
+          \resumeItemListStart
+            \resumeItem{Designing an AI model that predicts which guide-dog puppies will finish training, so nonprofits can focus limited resources on likely graduates}
+            \resumeItem{Prototyping a sensor collar that tracks a puppy's movement, heart rate, breathing, and sounds, to combine with video}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Alzheimer's Research Agent} $|$ \emph{TypeScript, Python}}{October 2026 -- Present}
+          \resumeItemListStart
+            \resumeItem{Designing an open AI research assistant that reads Alzheimer's studies and datasets, links findings across papers, and is judged on results that matter for drug development}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/hermes-medicine-tracker}{Hermes}}, medication safety app $|$ \emph{Python, TypeScript, React}}{January 2026}
+          \resumeItemListStart
+            \resumeItem{Built solo in 24 hours at the Cline $\times$ Cerebras.AI hackathon (honorable mention against teams); warns users about dangerous drug combinations using FDA data on reported side effects}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Pathways} $|$ \emph{Kotlin}: schedule app for Exeter students that works offline on iOS, Android, and desktop}{February 2024}
+      \resumeProjectHeading
+          {\textbf{Game AI Pathfinding} $|$ \emph{Rust, C++}: fast route-finding for game characters}{December 2025}
+      \resumeProjectHeading
+          {\textbf{14 kB Websites} $|$ \emph{TypeScript, Astro}: pages small enough to load in one network round trip}{\tbd}
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/ani-tui}{ani-tui}} $|$ \emph{Python}: terminal app for browsing and tracking anime on AniList}{June 2026 -- July 2026}
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/nixconf}{NixOS Setup}} $|$ \emph{Nix}: my computers and a game server, rebuilt from config files}{February 2026 -- Present}
+      \resumeProjectHeading
+          {\textbf{\href{https://github.com/anshulnoori/OCS35-Y86-Assembler}{Y86 Assembler}} $|$ \emph{C\#}: turns Y86 assembly language into machine code}{September 2023}
+    \resumeSubHeadingListEnd
+
+
+%-----------LEADERSHIP-----------
+\section{Leadership \& Service}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+        {\textbf{Gentle Generations} $|$ \emph{Co-Founder}}{\tbd{} -- Present}
+        \resumeItemListStart
+          \resumeItem{Co-founded a nonprofit that connects young people with senior citizens through service}
+          \resumeItem{Let volunteers across the country and abroad design service projects around their own skills, including a month-long bake sale that raised over \$1,000 for the Alzheimer's Association}
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\textbf{\href{https://github.com/FTC-APEX-24513/apex-2025}{FTC Team APEX 24513}} $|$ \emph{Lead Programmer}}{\tbd{} -- Present}
+        \resumeItemListStart
+          \resumeItem{Wrote the robot's software in Kotlin and Java for the 2025--26 season, covering driving, ball intake, sorting, and shooting}
+          \resumeItem{Built autonomous routines that follow planned paths and use a camera to find targets, with battery-voltage compensation so the robot behaves the same as its battery drains}
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\textbf{Guide Dog Puppy Raiser} $|$ \emph{501(c)(3) guide dog nonprofit}}{\tbd{} -- Present}
+        \resumeItemListStart
+          \resumeItem{Raising and training Remington to become a guide dog for a person who is blind or has low vision}
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\textbf{Alzheimer's Association} $|$ \emph{Youth Board Chair}}{\tbd{} -- Present}
+    \resumeProjectHeading
+        {\textbf{Nurturing Neurons} $|$ \emph{Co-Founder} \quad \textbf{Fit4Grit} $|$ \emph{CTO} \quad \textbf{Birthday Dreams} $|$ \emph{Business Intern}}{}
+  \resumeSubHeadingListEnd
+
+
+%-----------AWARDS-----------
+\section{Awards}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}l}
+       \textbf{Computer Science Upper Classmen Award}, Phillips Exeter & \textbf{College Board National Recognition Program} \\
+       \textbf{1517 Medici Project Grant}, 1517 Fund & \textbf{National Merit Scholarship Program} Qualifier \\
+       \textbf{Honorable Mention}, Cline $\times$ Cerebras.AI Hackathon & \textbf{First-Year English Award}, Phillips Exeter \\
+     \end{tabular*}
+    }}
+ \end{itemize}
+
+
+%-------------------------------------------
+\end{document}

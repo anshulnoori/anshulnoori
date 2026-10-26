@@ -4,12 +4,20 @@ import Base from "../layouts/Base.astro";
 
 <Base title="404 - Anshul Noori" description="No manual entry for this page.">
   <main class="wrap notfound">
-    <p class="man-head"><span>ANSHUL(1)</span><span>Personal Manual</span><span>ANSHUL(1)</span></p>
+    <p class="man-head">
+      <span>ANSHUL(1)</span>
+      <span>Personal Manual</span>
+      <span>ANSHUL(1)</span>
+    </p>
     <br />
-    <p>$ man <span data-path>this-page</span></p>
+    <p>
+      $ man <span data-path>this-page</span>
+    </p>
     <p>No manual entry for this page.</p>
     <br />
-    <p>See <a href="/">anshulnoori.com</a>.</p>
+    <p>
+      See <a href="/">anshulnoori.com</a>.
+    </p>
   </main>
   <script is:inline>
     document.querySelector("[data-path]").textContent = location.pathname.slice(1) || "index";

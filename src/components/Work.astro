@@ -9,35 +9,41 @@ const stats = [
 ---
 
 <section id="work" class="sect work wrap" aria-labelledby="work-h">
-  <h2 id="work-h" class="sect-label"><span>02</span> Work</h2>
+  <h2 id="work-h" class="sect-label">
+    <span>02</span> Work
+  </h2>
 
   <article class="role">
     <header class="role-head">
       <h3 class="role-name">Topit AI</h3>
-      <p class="role-title">Chief Technology Officer <span class="dim">· present</span></p>
+      <p class="role-title">
+        Chief Technology Officer <span class="dim">· present</span>
+      </p>
     </header>
     <p class="role-what">An AI startup that helps people choose their best photos.</p>
 
     <dl class="stats">
-      {
-        stats.map(([v, l]) => (
-          <div>
-            <dt>{l}</dt>
-            <dd>{v}</dd>
-          </div>
-        ))
-      }
+      {stats.map(([v, l]) => (
+        <div>
+          <dt>{l}</dt>
+          <dd>{v}</dd>
+        </div>
+      ))}
     </dl>
 
     <ul class="dash role-notes">
-      {topit.notes.map((n) => <li>{n}</li>)}
+      {topit.notes.map((n) => (
+        <li>{n}</li>
+      ))}
     </ul>
   </article>
 
   <article class="role role-small">
     <header class="role-head">
       <h3 class="role-name">PuroPlate</h3>
-      <p class="role-title">Technical Consultant <span class="dim">· present</span></p>
+      <p class="role-title">
+        Technical Consultant <span class="dim">· present</span>
+      </p>
     </header>
   </article>
 </section>

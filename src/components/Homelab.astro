@@ -1,72 +1,60 @@
 ---
-const groups = {
-  left: [
-    ["Host", ["Laptop", "Kubernetes", "NixOS", "Config in Git"]],
-    ["Services", ["Email system", "Automations", "AI models on GPU"]],
-  ],
-  right: [
-    ["Access", ["Private remote access", "Single sign-on"]],
-    ["Secrets", ["Password-manager-backed store"]],
-  ],
-} as const;
+import Plate from "./Plate.astro";
+
+// Map-legend groups; each swatch colour matches a part of the diorama.
+const left = [
+  ["Host", "slate", ["Laptop", "Kubernetes", "NixOS", "Config in Git"]],
+  ["Services", "land", ["Email system", "Automations", "AI models on its GPU"]],
+] as const;
+const right = [
+  ["Access", "sea", ["Private remote access", "Single sign-on"]],
+  ["Secrets", "ochre", ["Password-manager-backed store"]],
+] as const;
 ---
 
-<section id="homelab" class="sect dark hud-sect" aria-labelledby="homelab-h">
-  <div class="wrap">
-    <h2 id="homelab-h" class="sect-label"><span>05</span> Homelab</h2>
+<section id="homelab" class="sect homelab wrap" aria-labelledby="homelab-h">
+  <h2 id="homelab-h" class="sect-label">
+    <span>05</span> Homelab
+  </h2>
+  <h3 class="role-name">A laptop running Kubernetes</h3>
+  <p class="role-what">Set up entirely from config files in Git, and running everything I use day to day.</p>
 
-    <div class="hud">
-      <div class="hud-top">
-        <p>System time<br /><time data-clock>--:--:--</time></p>
-        <p class="hud-title" aria-hidden="true">||||||||&nbsp;&nbsp;H O M E L A B&nbsp;&nbsp;||||||||</p>
-        <p class="r">Since<br />2026.10</p>
-      </div>
-
-      <div class="hud-body">
-        <div class="hud-col">
-          {
-            groups.left.map(([h, items]) => (
-              <div class="hud-group">
-                <p class="hud-h">{h}</p>
-                <ul>{items.map((t) => <li><span class="bar" aria-hidden="true" />{t}</li>)}</ul>
-              </div>
-            ))
-          }
+  <div class="lab">
+    <div class="legend">
+      {left.map(([h, c, items]) => (
+        <div>
+          <p class="lbl">{h}</p>
+          <ul>
+            {items.map((t) => (
+              <li>
+                <i class={`sw sw-${c}`} aria-hidden="true" />
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <svg class="radar" viewBox="0 0 300 300" aria-hidden="true">
-          <circle cx="150" cy="150" r="130"></circle>
-          <ellipse cx="150" cy="150" rx="130" ry="46"></ellipse>
-          <ellipse cx="150" cy="150" rx="46" ry="130"></ellipse>
-          <path d="M10 150H290M150 10V290M138 150h24M150 138v24"></path>
-          <rect x="176" y="70" width="58" height="50"></rect>
-          <text x="184" y="88">K8S</text>
-          <text x="184" y="102">NIX</text>
-          <text x="184" y="116">GPU</text>
-          <rect class="pill" x="104" y="230" width="92" height="16"></rect>
-          <text class="pill-t" x="150" y="242" text-anchor="middle">G I T O P S</text>
-        </svg>
-
-        <div class="hud-col">
-          {
-            groups.right.map(([h, items]) => (
-              <div class="hud-group">
-                <p class="hud-h">{h}</p>
-                <ul>{items.map((t) => <li><span class="bar" aria-hidden="true" />{t}</li>)}</ul>
-              </div>
-            ))
-          }
-          <div class="hud-group">
-            <p class="hud-h">Sandbox VM boot</p>
-            <p class="hud-big">~2s</p>
-            <p class="dim">Isolated virtual machines for running untrusted code.</p>
-          </div>
+      ))}
+    </div>
+    <Plate id="homelab" fig={3} />
+    <div class="legend">
+      {right.map(([h, c, items]) => (
+        <div>
+          <p class="lbl">{h}</p>
+          <ul>
+            {items.map((t) => (
+              <li>
+                <i class={`sw sw-${c}`} aria-hidden="true" />
+                {t}
+              </li>
+            ))}
+          </ul>
         </div>
+      ))}
+      <div>
+        <p class="lbl">Sandbox VM boot</p>
+        <p class="lab-big">~2s</p>
+        <p class="dim">Isolated virtual machines for running untrusted code.</p>
       </div>
-
-      <p class="hud-foot">
-        <span class="chip">Homelab</span><span>A laptop turned into a home server running Kubernetes, set up entirely from config files in Git.</span>
-      </p>
     </div>
   </div>
 </section>

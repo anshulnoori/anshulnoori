@@ -1,55 +1,72 @@
 ---
 import { projects, smallProjects } from "../data/site";
+import Plate from "./Plate.astro";
 // Homelab (05) and the two keyboards (06) are numbered after these.
 const total = projects.length + smallProjects.length + 3;
 const pad = (n: number) => String(n).padStart(2, "0");
 ---
 
 <section id="projects" class="sect projects wrap" aria-labelledby="projects-h">
-  <h2 id="projects-h" class="sect-label"><span>04</span> Projects</h2>
+  <h2 id="projects-h" class="sect-label">
+    <span>04</span> Projects
+  </h2>
 
-  <p class="attn" aria-hidden="true">Now boarding:<br />projects 01-{pad(total)}</p>
+  <div class="proj-top">
+    <p class="attn" aria-hidden="true">
+      Now boarding:
+      <br />
+      projects 01-{pad(total)}
+    </p>
+    <Plate id="silt" fig={2} />
+  </div>
 
   <ol class="specimens">
-    {
-      projects.map((p, i) => (
-        <li id={p.id}>
-          <p class="meta">
-            <span>Project {pad(i + 1)}</span>
-            <span>[{p.kind}]</span>
-            <span>{p.stack}</span>
-            {p.dates && <span>{p.dates}</span>}
-            {p.href && (
-              <a href={p.href}>
-                <span aria-hidden="true">↗</span> Source
-              </a>
-            )}
-          </p>
-          <h3 class="spec-name">{p.name}<span class="dim">, {p.what}</span></h3>
-          {p.impact && <p class="impact">{p.impact}</p>}
-          {p.notes.map((n) => (
-            <p>{n}</p>
-          ))}
-        </li>
-      ))
-    }
+    {projects.map((p, i) => (
+      <li id={p.id}>
+        <p class="meta">
+          <span>Project {pad(i + 1)}</span>
+          <span>[{p.kind}]</span>
+          <span>{p.stack}</span>
+          {p.dates && <span>{p.dates}</span>}
+          {p.href && (
+            <a href={p.href} target="_blank">
+              <span aria-hidden="true">↗</span> Source
+            </a>
+          )}
+        </p>
+        <h3 class="spec-name">
+          {p.name}
+          <span class="dim">, {p.what}</span>
+        </h3>
+        {p.impact && <p class="impact">{p.impact}</p>}
+        {p.notes.map((n) => (
+          <p>{n}</p>
+        ))}
+      </li>
+    ))}
   </ol>
 
   <h3 class="sub-label">Also</h3>
   <ul class="also">
-    {
-      smallProjects.map((p, i) => (
-        <li>
-          <p class="meta">
-            <span>{pad(projects.length + i + 1)}</span>
-            <span>[{p.kind}]</span>
-            <span>{p.stack}</span>
-            {p.dates && <span>{p.dates}</span>}
-          </p>
-          <h4 class="also-name">{p.href ? <a href={p.href}>{p.name}</a> : p.name}</h4>
-          <p>{p.what[0].toUpperCase() + p.what.slice(1)}.</p>
-        </li>
-      ))
-    }
+    {smallProjects.map((p, i) => (
+      <li>
+        <p class="meta">
+          <span>{pad(projects.length + i + 1)}</span>
+          <span>[{p.kind}]</span>
+          <span>{p.stack}</span>
+          {p.dates && <span>{p.dates}</span>}
+        </p>
+        <h4 class="also-name">
+          {p.href ? (
+            <a href={p.href} target="_blank">
+              {p.name}
+            </a>
+          ) : (
+            p.name
+          )}
+        </h4>
+        <p>{p.what.charAt(0).toUpperCase() + p.what.slice(1)}.</p>
+      </li>
+    ))}
   </ul>
 </section>

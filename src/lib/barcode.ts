@@ -1,5 +1,4 @@
 // Decorative barcode: deterministic bar widths derived from a string.
-// Returns an SVG path for bars drawn in a 0..width by 0..1 box.
 export function barcodePath(text: string, width = 120): string {
   let h = 2166136261;
   const bars: string[] = [];

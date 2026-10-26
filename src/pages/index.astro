@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
+import World from "../components/World.astro";
 import About from "../components/About.astro";
 import OpenSource from "../components/OpenSource.astro";
 import Work from "../components/Work.astro";
@@ -19,7 +19,7 @@ import Contact from "../components/Contact.astro";
 >
   <Nav />
   <main>
-    <Hero />
+    <World />
     <About />
     <Work />
     <OpenSource />
@@ -30,11 +30,34 @@ import Contact from "../components/Contact.astro";
     <School />
     <Contact />
   </main>
-  <aside class="keys" aria-label="Keyboard shortcuts">
-    <span><kbd>1</kbd>-<kbd>9</kbd> Section</span>
-    <span><kbd>J</kbd><kbd>K</kbd> Next / prev</span>
-    <span><kbd>M</kbd> Light / dark</span>
-    <span><kbd>G</kbd> Grid</span>
+  <aside class="keys" aria-label="Keyboard shortcuts" data-mode="page">
+    <span data-for="orbit">
+      <kbd>1</kbd>-<kbd>5</kbd> Places
+    </span>
+    <span data-for="orbit">
+      <kbd>Drag</kbd> Spin
+    </span>
+    <span data-for="place">
+      <kbd>←</kbd>
+      <kbd>→</kbd> Next place
+    </span>
+    <span data-for="object">
+      <kbd>Drag</kbd> Rotate
+    </span>
+    <span data-for="object">Type to press keys</span>
+    <span data-for="place object">
+      <kbd>Esc</kbd> Back
+    </span>
+    <span data-for="page">
+      <kbd>1</kbd>-<kbd>9</kbd> Section
+    </span>
+    <span data-for="page orbit">
+      <kbd>J</kbd>
+      <kbd>K</kbd> Next / prev
+    </span>
+    <span data-for="page orbit place">
+      <kbd>M</kbd> Light / dark
+    </span>
   </aside>
   <script>
     import "../scripts/site";
