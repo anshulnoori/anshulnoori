@@ -88,7 +88,7 @@ pnpm cv         # cv/resume.tex -> public/cv.pdf (needs latexmk)
 
 1. Content: `src/data/site.ts`. Sections: `src/components/`. Styles: `src/styles/global.css`.
 2. 3D: `src/scripts/world/` (planet, landmarks, IO80, diorama plates), all one dithered shader.
-3. CV: edit `cv/resume.tex`, run `pnpm cv`, commit `public/cv.pdf`. It is served at `/cv.pdf`; `/cv` redirects there.
+3. CV: edit `cv/resume.tex`, run `pnpm cv` (`--force` publishes despite placeholder dates), commit `public/cv.pdf`. It is served at `/cv.pdf`; `/cv` redirects there.
 4. Keyboard: `1`-`9` jump to sections, `J`/`K` next/previous, `M` light/dark, `G` grid overlay. On the globe, `1`-`5`
    visit places, `←`/`→` step between them, `Esc` goes back.
 
