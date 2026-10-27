@@ -225,6 +225,7 @@ export const smallProjects: Project[] = [
     what: "pages small enough to load in one network round trip",
     stack: "TypeScript, Astro",
     kind: "SW",
+    dates: "2026.05",
     notes: [],
   },
   {
@@ -408,10 +409,11 @@ export const education = {
   },
 };
 
-export const service = [
+export const service: { name: string; role: string; dates?: string; href?: string; notes: string[] }[] = [
   {
     name: "Gentle Generations",
-    role: "Co-Founder",
+    role: "Co-Founder & President",
+    dates: "2020 → now",
     notes: [
       "Co-founded a nonprofit that connects young people with senior citizens through service.",
       "Volunteers across the country and abroad design service projects around their own skills, including a month-long bake sale that raised over $1,000 for the Alzheimer's Association.",
@@ -420,6 +422,7 @@ export const service = [
   {
     name: "FTC Team APEX 24513",
     role: "Lead Programmer",
+    dates: "2025.09 → now",
     href: "https://github.com/FTC-APEX-24513/apex-2025",
     notes: [
       "Wrote the robot's software in Kotlin and Java for the 2025-26 season, covering driving, ball intake, sorting, and shooting.",
@@ -429,9 +432,10 @@ export const service = [
   {
     name: "Guide Dog Puppy Raiser",
     role: "501(c)(3) guide dog nonprofit",
-    notes: ["Raising and training Remington to become a guide dog for a person who is blind or has low vision."],
+    dates: "2025 → now",
+    notes: ["Raising and training Remington to become a guide dog for a person who is visually impaired."],
   },
-  { name: "Alzheimer's Association", role: "Youth Board Chair", notes: [] },
+  { name: "Alzheimer's Association", role: "Youth Board Chair", dates: "2026 → now", notes: [] },
   { name: "Nurturing Neurons", role: "Co-Founder", notes: [] },
   { name: "Fit4Grit", role: "CTO", notes: [] },
   { name: "Birthday Dreams", role: "Business Intern", notes: [] },

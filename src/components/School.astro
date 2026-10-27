@@ -134,6 +134,7 @@ const { exeter, stanford } = education;
             s.name
           )}
           <span class="dim"> | {s.role}</span>
+          {s.dates && <span class="dim svc-date"> · {s.dates}</span>}
         </p>
         {s.notes.map((n) => (
           <p>{n}</p>

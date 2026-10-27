@@ -1970,6 +1970,10 @@ html[data-grid] body::after {
   margin-bottom: 5.5px;
 }
 
+.svc-date {
+  white-space: nowrap;
+}
+
 .service p + p {
   margin-top: 5.5px;
 }
